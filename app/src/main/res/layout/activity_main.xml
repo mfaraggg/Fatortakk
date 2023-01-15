@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9fcff"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/fatortakTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/chillax"
+        android:text="fatortak"
+        android:textColor="#00516e"
+        android:textSize="70sp" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/fatortakTV"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/box_edit_text"
+        android:focusable="true"
+        android:hint="username"
+        android:paddingLeft="10dp"
+        android:textColorHighlight="#ff7eff15"
+        android:textColorHint="#3F615D" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_alignEnd="@+id/editTextUsername"
+        android:layout_alignRight="@+id/editTextUsername"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/box_edit_text"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#3F615D" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/chillax"
+        android:text="login"
+        android:textColor="#00516e"
+        android:textSize="20sp"
+        app:cornerRadius="20dp" />
+
+    <TextView
+        android:id="@+id/forgotPasswordTV"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="30dp"
+        android:layout_below="@+id/loginButton"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/chillax"
+        android:text="forgot password?"
+        android:textColor="#00516e"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/signupTV"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgotPasswordTV"
+        android:layout_marginTop="90dp"
+        android:fontFamily="@font/chillax"
+        android:text="don't have an account? Sign up"
+        android:clickable="true"
+        android:onClick="signupClicked"
+        android:textColor="#00516e"
+        android:textSize="20sp"
+        android:focusable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:layout_marginStart="12dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Attempts Left:"
+        android:id="@+id/textView2"
+        android:layout_marginTop="2000dp"
+        android:layout_below="@+id/loginButton"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView3"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/textView2"
+        android:textSize="25dp"/>
+
+    <!--    <Button-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Cancel"-->
+    <!--        android:id="@+id/button2"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_toRightOf="@+id/loginTV"-->
+    <!--        android:layout_toEndOf="@+id/loginTV" />-->
+
+</RelativeLayout>
