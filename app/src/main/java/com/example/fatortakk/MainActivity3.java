@@ -20,7 +20,6 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
         final ImageView qrCodeImageView = (ImageView) findViewById(R.id.qr_code_image_view);
-
         String userId = "12345";
         try {
             Bitmap bitmap = createQRCode(userId);
