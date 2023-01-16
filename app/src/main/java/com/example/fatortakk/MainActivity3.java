@@ -1,7 +1,9 @@
 package com.example.fatortakk;
 
+        import android.content.Intent;
         import android.graphics.Bitmap;
         import android.os.Bundle;
+        import android.view.View;
         import android.widget.Button;
         import android.widget.ImageView;
 
@@ -26,6 +28,14 @@ public class MainActivity3 extends AppCompatActivity {
         } catch (WriterException e) {
             e.printStackTrace();
         }
+        Button backButton = (Button) findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private Bitmap createQRCode(String userId) throws WriterException {

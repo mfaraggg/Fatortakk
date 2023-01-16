@@ -12,5 +12,18 @@
         android:layout_width="500dp"
         android:layout_height="500dp"
         android:layout_gravity="center" />
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/roundedbutton"
+        android:fontFamily="@font/chillax"
+        android:onClick="onBackPressed"
+        android:text="Back"
+        android:textColor="#00516e"
+        android:textSize="20sp"
 
+        />
 </LinearLayout>
