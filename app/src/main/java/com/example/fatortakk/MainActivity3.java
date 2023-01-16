@@ -2,6 +2,7 @@ package com.example.fatortakk;
 
         import android.graphics.Bitmap;
         import android.os.Bundle;
+        import android.widget.Button;
         import android.widget.ImageView;
 
         import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +13,6 @@ package com.example.fatortakk;
         import com.google.zxing.common.BitMatrix;
 
 public class MainActivity3 extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     private Bitmap createQRCode(String userId) throws WriterException {
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-        BitMatrix bitMatrix = multiFormatWriter.encode(userId, BarcodeFormat.QR_CODE, 2000, 2000);
+        BitMatrix bitMatrix = multiFormatWriter.encode(userId, BarcodeFormat.QR_CODE, 200, 200);
         int width = bitMatrix.getWidth();
         int height = bitMatrix.getHeight();
         int[] pixels = new int[width * height];

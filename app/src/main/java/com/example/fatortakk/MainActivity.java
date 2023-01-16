@@ -61,5 +61,7 @@ public class MainActivity extends Activity {
     }
     public void signupClicked(View view) {
         Toast.makeText(getApplicationContext(), "Signing up...",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, Signup.class);
+        startActivity(intent);
     }
 }
