@@ -13,12 +13,12 @@ package com.example.fatortakk;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    private ImageView qrCodeImageView = (ImageView) findViewById(R.id.qr_code_image_view);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main3);
+        final ImageView qrCodeImageView = (ImageView) findViewById(R.id.qr_code_image_view);
 
         String userId = "12345";
         try {

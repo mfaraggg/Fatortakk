@@ -58,12 +58,8 @@ public class MainActivity extends Activity {
                 }
             }
         });
-
-//        b2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
+    }
+    public void signupClicked(View view) {
+        Toast.makeText(getApplicationContext(), "Signing up...",Toast.LENGTH_SHORT).show();
     }
 }

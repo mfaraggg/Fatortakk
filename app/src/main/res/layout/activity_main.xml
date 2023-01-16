@@ -57,17 +57,16 @@
 
     <Button
         android:id="@+id/loginButton"
+        android:background="@drawable/roundedbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextPassword"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:background="@drawable/roundedbutton"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/chillax"
         android:text="login"
         android:textColor="#00516e"
         android:textSize="20sp"
+        android:fontFamily="@font/chillax"
         app:cornerRadius="20dp" />
 
     <TextView
@@ -82,20 +81,36 @@
         android:textColor="#00516e"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/signupTV"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgotPasswordTV"
         android:layout_marginTop="90dp"
-        android:fontFamily="@font/chillax"
-        android:text="don't have an account? Sign up"
-        android:clickable="true"
-        android:onClick="signupClicked"
-        android:textColor="#00516e"
-        android:textSize="20sp"
-        android:focusable="true" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/dontHaveAccountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chillax"
+            android:text="don't have an account?"
+            android:textColor="#50839f"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/signupTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/chillax"
+            android:layout_marginStart="5dp"
+            android:text="Sign up"
+            android:onClick="signupClicked"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="#00516e"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -120,14 +135,5 @@
         android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/textView2"
         android:textSize="25dp"/>
-
-    <!--    <Button-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Cancel"-->
-    <!--        android:id="@+id/button2"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        android:layout_toRightOf="@+id/loginTV"-->
-    <!--        android:layout_toEndOf="@+id/loginTV" />-->
 
 </RelativeLayout>
