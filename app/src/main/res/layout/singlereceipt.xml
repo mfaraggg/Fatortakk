@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Store"
+        android:text="Store"
+        android:textSize="20sp"
+        android:layout_gravity="start"
+        android:fontFamily="@font/chillax"
+        android:layout_toRightOf="@id/Logo"
+        android:textColor="#00516e">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Date"
+        android:text="10/05/2022"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/chillax"
+        android:layout_marginRight="10dp"
+        android:textColor="#00516e">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Timing"
+        android:text="11:58 AM"
+        android:layout_below="@id/Store"
+        android:layout_toRightOf="@id/Logo"
+        android:textSize="12sp"
+        android:fontFamily="@font/chillax"
+        android:textColor="#00516e">
+    </TextView>
+</RelativeLayout>
