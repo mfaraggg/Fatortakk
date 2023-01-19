@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
+
 public class ReceiptAdapter extends BaseAdapter {
     private ArrayList<Receipt> ReceiptList;
     private Context context;
