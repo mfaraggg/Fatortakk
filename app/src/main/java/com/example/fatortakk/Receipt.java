@@ -2,7 +2,7 @@ package com.example.fatortakk;
 import java.io.Serializable;
 import java.util.List;
 
-public class Receipt implements Serializable{
+public class Receipt {
     private String name;
     private String date;
     private float total;
@@ -16,16 +16,39 @@ public class Receipt implements Serializable{
         this.total = total;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public String getDate() {
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setDate(String date)
+    {
+        this.date = date;
+    }
+
+    public String getDate()
+    {
         return date;
     }
 
-    public String getTime() {
+    public void setTime(String time)
+    {
+        this.time=time;
+    }
+
+    public String getTime()
+    {
         return time;
+    }
+
+    public void setTotal(float total)
+    {
+        this.total=total;
     }
 
     public float getTotal() {

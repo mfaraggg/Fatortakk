@@ -1,5 +1,6 @@
 package com.example.fatortakk;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -10,8 +11,8 @@ import retrofit2.http.Query;
 
 public interface APIInterface
 {
-    @GET("search")
-    Call<List<Receipt>> getReceipts();
+    @GET("allreceipts")
+    Call<ArrayList<Receipt>> getReceipts();
 }
 
 
