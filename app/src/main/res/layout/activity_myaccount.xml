@@ -20,9 +20,6 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:enabled="false"
-        android:inputType="none"
-        android:focusableInTouchMode="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@+id/fatortakTV"
@@ -43,6 +40,9 @@
 
     <EditText
         android:id="@+id/editTextUsername"
+        android:enabled="false"
+        android:inputType="none"
+        android:focusableInTouchMode="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@+id/editTextName"
@@ -54,7 +54,6 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/box_edit_text"
         android:hint="username"
-        android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
@@ -76,6 +75,9 @@
 
     <EditText
         android:id="@+id/editTextEmail"
+        android:enabled="false"
+        android:inputType="none"
+        android:focusableInTouchMode="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@+id/editTextPhone"

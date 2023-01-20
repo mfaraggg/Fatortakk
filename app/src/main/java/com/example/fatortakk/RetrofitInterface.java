@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -18,6 +19,9 @@ public interface RetrofitInterface {
 
     @POST("/signup")
     Call<Void> executeSignup(@Body HashMap<String,String> map);
+
+    @GET("/getuser")
+    Call<LoginResult> getUser(@Body HashMap<String,String> map);
     @FormUrlEncoded
     @POST("/getUserId")
     Call<UserId> getUserId(@FieldMap HashMap<String, String> params);
