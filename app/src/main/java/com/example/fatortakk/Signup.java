@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +42,11 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                String email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString().trim();
+                if (!isValidEmailId(email)){
+                    Toast.makeText(getApplicationContext(),"Invalid Email",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 HashMap<String, String> map = new HashMap<>();
 
                 map.put("name", ((EditText) findViewById(R.id.editTextName)).getText().toString());
@@ -68,24 +74,18 @@ public class Signup extends AppCompatActivity {
                         Toast.makeText(Signup.this, t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-//
-//                String username, password, email, phone, name;
-//                username = ((EditText) findViewById(R.id.editTextUsername)).getText().toString();
-//                password = ((EditText) findViewById(R.id.editTextPassword)).getText().toString();
-//                email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
-//                phone = ((EditText) findViewById(R.id.editTextPhone)).getText().toString();
-//                name = ((EditText) findViewById(R.id.editTextName)).getText().toString();
-//
-//                if (username.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty() || name.isEmpty()) {
-//                    Toast toast = Toast.makeText(Signup.this, "All fields are required", Toast.LENGTH_SHORT);
-//                    toast.show();
-//                }
-//                else{
-//                    Intent intent = new Intent(Signup.this, MainActivity2.class);
-//                    startActivity(intent);
-//                }
             }
         });
 
+    }
+
+    private boolean isValidEmailId(String email){
+
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
     }
 }
