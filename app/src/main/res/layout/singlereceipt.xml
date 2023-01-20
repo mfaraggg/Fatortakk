@@ -6,21 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/Logo"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="10dp"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Store"
+        android:id="@+id/StoreTxt"
         android:text="Store"
         android:textSize="20sp"
         android:layout_gravity="start"
         android:fontFamily="@font/chillax"
-        android:layout_toRightOf="@id/Logo"
         android:textColor="#00516e">
     </TextView>
 
@@ -28,12 +21,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Date"
+        android:id="@+id/DateTxt"
         android:text="10/05/2022"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:gravity="left"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/chillax"
         android:layout_marginRight="10dp"
         android:textColor="#00516e">
@@ -42,10 +34,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Timing"
+        android:id="@+id/TotalTxt"
+        android:text="1200.10"
+        android:layout_marginTop="5dp"
+        android:textSize="15sp"
+        android:gravity="left"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/DateTxt"
+        android:fontFamily="@font/chillax"
+        android:layout_marginRight="10dp"
+        android:textColor="#00516e">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/TimeTxt"
         android:text="11:58 AM"
-        android:layout_below="@id/Store"
-        android:layout_toRightOf="@id/Logo"
+        android:layout_below="@id/StoreTxt"
         android:textSize="12sp"
         android:fontFamily="@font/chillax"
         android:textColor="#00516e">

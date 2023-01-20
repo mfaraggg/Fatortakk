@@ -30,7 +30,10 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                Intent intent2 = getIntent();
+                String id = intent2.getStringExtra("id");
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         });

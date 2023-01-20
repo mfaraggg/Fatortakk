@@ -40,21 +40,23 @@ public class ReceiptAdapter extends BaseAdapter {
 
     private class ViewHolder
     {
-        TextView StoreTxt, DateTxt, TimeTxt;
+        TextView StoreTxt, DateTxt, TimeTxt, TotalTxt;
     }
     @Override
     public View getView(int pos, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = new ViewHolder();
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView=layoutInflater.inflate(Layout, null);
-        viewHolder.StoreTxt = convertView.findViewById(R.id.Store);
-        viewHolder.DateTxt = convertView.findViewById(R.id.Date);
-        viewHolder.TimeTxt = convertView.findViewById(R.id.Timing);
+        viewHolder.StoreTxt = convertView.findViewById(R.id.StoreTxt);
+        viewHolder.DateTxt = convertView.findViewById(R.id.DateTxt);
+        viewHolder.TimeTxt = convertView.findViewById(R.id.TimeTxt);
+        viewHolder.TotalTxt = convertView.findViewById(R.id.TotalTxt);
 
         Receipt receipt = ReceiptList.get(pos);
         viewHolder.StoreTxt.setText(receipt.getName());
         viewHolder.DateTxt.setText(receipt.getDate());
         viewHolder.TimeTxt.setText(receipt.getTime());
+        viewHolder.TotalTxt.setText(String.valueOf(receipt.getTotal()));
 
         return convertView;
     }
