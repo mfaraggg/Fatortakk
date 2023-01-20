@@ -14,7 +14,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/chillax"
-        android:text="hello, Admin"
         android:textColor="#00516e"
         android:textSize="50sp" />
 
@@ -33,7 +32,7 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/box_edit_text"
         android:focusable="true"
-        android:hint="name"
+        android:hint="enter new name"
         android:paddingLeft="10dp"
         android:textColorHighlight="#ff7eff15"
         android:textColorHint="#3F615D" />
@@ -53,12 +52,14 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/box_edit_text"
-        android:hint="username"
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
     <EditText
         android:id="@+id/editTextPhone"
+        android:enabled="false"
+        android:inputType="none"
+        android:focusableInTouchMode="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@+id/editTextUsername"
@@ -69,7 +70,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/box_edit_text"
-        android:hint="phone number"
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
@@ -88,7 +88,6 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/box_edit_text"
-        android:hint="email"
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
@@ -104,17 +103,32 @@
         android:layout_marginStart="40dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/box_edit_text"
-        android:hint="password"
+        android:hint="enter new password"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/updateButton"
         android:background="@drawable/roundedbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextPassword"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="Update"
+        android:textColor="#00516e"
+        android:textSize="20sp"
+        android:fontFamily="@font/chillax"
+        app:cornerRadius="20dp" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/updateButton"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:text="Back"

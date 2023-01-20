@@ -70,8 +70,7 @@ public class MainActivity3 extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
-                startActivity(intent);
+                MainActivity3.this.finish();
             }
         });
     }
