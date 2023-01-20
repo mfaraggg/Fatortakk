@@ -102,14 +102,15 @@
             android:id="@+id/signupTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/chillax"
             android:layout_marginStart="5dp"
-            android:text="Sign up"
-            android:onClick="signupClicked"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/chillax"
+            android:onClick="signupClicked"
+            android:text="Sign up"
             android:textColor="#00516e"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <TextView

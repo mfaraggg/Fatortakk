@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -15,6 +18,9 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        ImageButton AllReceipts, Insights, MyAccount;
+        ImageButton PersonalQR;
 
         PersonalQR = (ImageButton) findViewById(R.id.button2);
         MyAccount = (ImageButton) findViewById(R.id.button4);
@@ -34,6 +40,14 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v)
             {
                 Intent intent = new Intent(MainActivity2.this, MyAccount.class);
+                startActivity(intent);
+            }
+        });
+
+        AllReceipts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, AllReceipts.class);
                 startActivity(intent);
             }
         });

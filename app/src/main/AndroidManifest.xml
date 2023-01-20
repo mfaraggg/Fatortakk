@@ -19,6 +19,9 @@
             android:name=".MyAccount"
             android:exported="false" />
         <activity
+            android:name=".AllReceipts"
+            android:exported="false" />
+        <activity
             android:name=".Signup"
             android:exported="false" />
         <activity
