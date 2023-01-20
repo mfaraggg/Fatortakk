@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 HashMap<String, String> map = new HashMap<>();
+                String id = ed1.getText().toString();
                 map.put("username", ed1.getText().toString());
                 map.put("password", ed2.getText().toString());
 
@@ -65,7 +66,9 @@ public class MainActivity extends Activity {
                             LoginResult result = response.body();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                            intent.putExtra("id", id);
                             startActivity(intent);
+
                         } else if (response.code() == 400) {
                             Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
                         }

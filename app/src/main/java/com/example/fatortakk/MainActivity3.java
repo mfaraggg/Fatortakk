@@ -6,6 +6,7 @@ package com.example.fatortakk;
         import android.view.View;
         import android.widget.Button;
         import android.widget.ImageView;
+        import android.widget.Toast;
 
         import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,13 +15,51 @@ package com.example.fatortakk;
         import com.google.zxing.WriterException;
         import com.google.zxing.common.BitMatrix;
 
+        import java.util.HashMap;
+
+        import retrofit2.Call;
+        import retrofit2.Retrofit;
+        import retrofit2.converter.gson.GsonConverterFactory;
+        import retrofit2.Callback;
+        import retrofit2.Response;
+
+
 public class MainActivity3 extends AppCompatActivity {
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+    private String BASE_URL = "http://10.0.2.2:3000";
+    private String userId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+        HashMap<String, String> map = new HashMap<>();
+        Intent intent3 = getIntent();
+        userId = intent3.getStringExtra("id");
+        map.put("username", userId);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+        Call<UserId> call = retrofitInterface.getUserId(map);
+        call.enqueue(new Callback<UserId>() {
+            @Override
+            public void onResponse(Call<UserId> call, Response<UserId> response) {
+                if (response.code() == 200) {
+                    UserId userId = response.body();
+                    Toast.makeText(MainActivity3.this, "User ID retrieved successfully", Toast.LENGTH_LONG).show();
+                } else if (response.code() == 400) {
+                    Toast.makeText(MainActivity3.this, "Failed to retrieve user ID", Toast.LENGTH_LONG).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<UserId> call, Throwable t) {
+            }
+        });
+
         final ImageView qrCodeImageView = (ImageView) findViewById(R.id.qr_code_image_view);
-        String userId = "12345";
+        //String userId = "12345";
         try {
             Bitmap bitmap = createQRCode(userId);
             qrCodeImageView.setImageBitmap(bitmap);
