@@ -12,59 +12,37 @@
         android:src="@drawable/default_logo"
         android:layout_gravity="start"
         android:layout_marginRight="5dp"
-        android:id="@+id/Logos">
+        android:id="@+id/CategoryImage">
 
     </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/StoreTxt"
+        android:id="@+id/CategoryName"
         android:text="Store"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:fontFamily="@font/chillax"
         android:textColor="#00516e"
-        android:layout_toRightOf="@id/Logos">
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/CategoryImage">
     </TextView>
+
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/DateTxt"
-        android:text="10/05/2022"
-        android:textSize="12sp"
-        android:gravity="left"
-        android:layout_alignParentEnd="true"
-        android:fontFamily="@font/chillax"
-        android:layout_marginRight="10dp"
-        android:textColor="#00516e">
-    </TextView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TotalTxt"
-        android:text="1200.10"
+        android:id="@+id/Percent"
+        android:text="25%"
         android:layout_marginTop="5dp"
-        android:textSize="15sp"
+        android:textSize="25sp"
         android:gravity="left"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/DateTxt"
         android:fontFamily="@font/chillax"
         android:layout_marginRight="10dp"
         android:textColor="#00516e">
     </TextView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TimeTxt"
-        android:text="11:58 AM"
-        android:layout_below="@id/StoreTxt"
-        android:textSize="12sp"
-        android:fontFamily="@font/chillax"
-        android:textColor="#00516e"
-        android:layout_toRightOf="@id/Logos">
-    </TextView>
 </RelativeLayout>

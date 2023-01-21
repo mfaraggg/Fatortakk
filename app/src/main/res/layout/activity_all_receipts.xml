@@ -10,7 +10,7 @@
   <TextView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="All Receipts"
+      android:text="  All Receipts"
       android:background="#00516E"
       android:textSize="20sp">
   </TextView>
