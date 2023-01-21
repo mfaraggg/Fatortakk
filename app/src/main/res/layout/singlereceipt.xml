@@ -6,15 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/default_logo"
+        android:layout_gravity="start"
+        android:layout_marginRight="5dp"
+        android:id="@+id/Logos">
+
+    </ImageView>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/StoreTxt"
         android:text="Store"
         android:textSize="20sp"
-        android:layout_gravity="start"
         android:fontFamily="@font/chillax"
-        android:textColor="#00516e">
+        android:textColor="#00516e"
+        android:layout_toRightOf="@id/Logos">
     </TextView>
 
 
@@ -54,6 +64,7 @@
         android:layout_below="@id/StoreTxt"
         android:textSize="12sp"
         android:fontFamily="@font/chillax"
-        android:textColor="#00516e">
+        android:textColor="#00516e"
+        android:layout_toRightOf="@id/Logos">
     </TextView>
 </RelativeLayout>
