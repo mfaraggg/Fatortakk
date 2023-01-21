@@ -109,4 +109,9 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, Signup.class);
         startActivity(intent);
     }
+    public void forgotClicked(View view) {
+        Toast.makeText(getApplicationContext(), "Forgot Password...",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, ForgotPassword.class);
+        startActivity(intent);
+    }
 }

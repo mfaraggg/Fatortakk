@@ -42,6 +42,9 @@ public interface RetrofitInterface {
     @POST("/getUserId")
     Call<UserId> getUserId(@FieldMap HashMap<String, String> params);
 
+    @POST("/sendRecoveryEmail")
+    Call<UserId> sendRecoveryEmail(@Body HashMap<String,String> map);
+
 
 
 }

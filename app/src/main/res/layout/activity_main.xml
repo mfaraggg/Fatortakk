@@ -78,6 +78,9 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/chillax"
         android:text="forgot password?"
+        android:onClick="forgotClicked"
+        android:clickable="true"
+        android:focusable="true"
         android:textColor="#00516e"
         android:textSize="20sp" />
 
