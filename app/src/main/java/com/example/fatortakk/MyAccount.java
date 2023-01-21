@@ -106,7 +106,7 @@ public class MyAccount extends AppCompatActivity {
                 } else if (!newPassword.isEmpty()){
                     map.put("username", UserName);
                     map.put("password", newPassword);
-                    call = retrofitInterface.updatePasswordByUsername(map);                    callEnqueue(call);
+                    call = retrofitInterface.updatePasswordByUsername(map);
                     callEnqueue(call);
                 } else if (!newName.isEmpty()){
                     map.put("username", UserName);
