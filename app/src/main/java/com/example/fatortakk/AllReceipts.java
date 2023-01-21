@@ -8,12 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,9 +23,14 @@ public class AllReceipts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_receipts);
 
+        Intent intentReceipts = getIntent();
+        String userID = intentReceipts.getStringExtra("userID");
+
         APIInterface myAPI;
         ListView ReceiptListView = findViewById(R.id.AllReceipts);
         String BaseURL = "http://10.0.2.2:3000/";
+
+        int passedUserID = Integer.valueOf(userID);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseURL).addConverterFactory(GsonConverterFactory.create()).build();
         myAPI = retrofit.create(APIInterface.class);
@@ -39,7 +40,9 @@ public class AllReceipts extends AppCompatActivity {
                 R.drawable.ovio, R.drawable.starbucks, R.drawable.zara};
         String[] storeNames = res.getStringArray(R.array.StoresArray);
 
-        Call<ArrayList<Receipt>> arrayListCall = myAPI.getReceipts();
+        Log.d("xxxxxxUSERID", userID);
+
+        Call<ArrayList<Receipt>> arrayListCall = myAPI.getReceipts(passedUserID);
 
         arrayListCall.enqueue(new Callback<ArrayList<Receipt>>() {
             @Override

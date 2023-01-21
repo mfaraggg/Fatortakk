@@ -52,55 +52,55 @@ public class MainActivity extends Activity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                HashMap<String, String> map = new HashMap<>();
-//                String id = ed1.getText().toString();
-//                map.put("username", ed1.getText().toString());
-//                map.put("password", ed2.getText().toString());
-//
-//                Call<LoginResult> call = retrofitInterface.executeLogin(map);
-//
-//                call.enqueue(new Callback<LoginResult>() {
-//                    @Override
-//                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
-//                        if (response.code() == 200) {
-//                            LoginResult result = response.body();
-//                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-//                            intent.putExtra("id", id);
-//                            startActivity(intent);
-//
-//                        } else if (response.code() == 400) {
-//                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<LoginResult> call, Throwable t) {
-//                        Toast.makeText(getApplicationContext(),
-//                                t.getMessage(),Toast.LENGTH_SHORT).show();
-//                    }
-//                });
+                HashMap<String, String> map = new HashMap<>();
+                String id = ed1.getText().toString();
+                map.put("username", ed1.getText().toString());
+                map.put("password", ed2.getText().toString());
 
-                if(ed1.getText().toString().equals("admin") &&
-                        ed2.getText().toString().equals("admin")) {
-                    Toast.makeText(getApplicationContext(),
-                            "Redirecting...",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                    // Start MainActivity2
-                    startActivity(intent);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
-                    tx1.setVisibility(View.VISIBLE);
-                    tx1.setBackgroundColor(Color.RED);
-                    counter--;
-                    tx1.setText(Integer.toString(counter));
+                Call<LoginResult> call = retrofitInterface.executeLogin(map);
 
-                    if (counter == 0) {
-                        b1.setEnabled(false);
+                call.enqueue(new Callback<LoginResult>() {
+                    @Override
+                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                        if (response.code() == 200) {
+                            LoginResult result = response.body();
+                            Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                            intent.putExtra("id", id);
+                            startActivity(intent);
+
+                        } else if (response.code() == 400) {
+                            Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_LONG).show();
+                        }
                     }
-                }
+
+                    @Override
+                    public void onFailure(Call<LoginResult> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),
+                                t.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+//                if(ed1.getText().toString().equals("admin") &&
+//                        ed2.getText().toString().equals("admin")) {
+//                    Toast.makeText(getApplicationContext(),
+//                            "Redirecting...",Toast.LENGTH_SHORT).show();
+//                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+//                    // Start MainActivity2
+//                    startActivity(intent);
+//                }
+//                else
+//                {
+//                    Toast.makeText(getApplicationContext(), "Wrong Credentials",Toast.LENGTH_SHORT).show();
+//                    tx1.setVisibility(View.VISIBLE);
+//                    tx1.setBackgroundColor(Color.RED);
+//                    counter--;
+//                    tx1.setText(Integer.toString(counter));
+//
+//                    if (counter == 0) {
+//                        b1.setEnabled(false);
+//                    }
+//                }
             }
         });
     }

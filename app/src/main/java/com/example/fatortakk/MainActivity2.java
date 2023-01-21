@@ -21,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity2 extends AppCompatActivity {
 
     ImageButton AllReceipts, Insights, MyAccount, PersonalQR;
+    Integer responseID;
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
     private String BASE_URL = "http://10.0.2.2:3000";
@@ -50,6 +51,21 @@ public class MainActivity2 extends AppCompatActivity {
             public void onResponse(Call<UserId> call, Response<UserId> response) {
                 String responseName = response.body().getName();
                 editTextHello.setText("Hello, " + responseName);
+            }
+
+            @Override
+            public void onFailure(Call<UserId> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),
+                        t.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Call<UserId> call2 = retrofitInterface.getUserByUsername(map);
+        call2.enqueue(new Callback<UserId>() {
+            @Override
+            public void onResponse(Call<UserId> call, Response<UserId> response) {
+                responseID = response.body().getId();
+                Toast.makeText(MainActivity2.this, responseID.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -90,7 +106,16 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, AllReceipts.class);
+                intent.putExtra("id", passedUsername);
+                intent.putExtra("userID", responseID.toString());
                 startActivity(intent);
+            }
+        });
+
+        Insights.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
