@@ -25,6 +25,9 @@ public class UserId {
     public String getEmail() {
         return email;
     }
+    public String getPassword() {
+        return email;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -38,5 +41,6 @@ public class UserId {
     public void setEmail(String email) {
         this.email = email;
     }
+    public void setPassword(String password) { this.email = password; }
 }
 

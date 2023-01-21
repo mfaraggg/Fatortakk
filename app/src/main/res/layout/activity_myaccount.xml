@@ -58,7 +58,7 @@
     <EditText
         android:id="@+id/editTextPhone"
         android:enabled="false"
-        android:inputType="none"
+        android:inputType="phone"
         android:focusableInTouchMode="false"
         android:layout_width="wrap_content"
         android:layout_height="50dp"

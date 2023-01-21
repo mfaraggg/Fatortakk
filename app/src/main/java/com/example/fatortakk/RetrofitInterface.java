@@ -29,6 +29,15 @@ public interface RetrofitInterface {
     @POST("/getUserByUsername")
     Call<UserId> getUserByUsername(@Body HashMap<String,String> map);
 
+    @POST("/updatePasswordByUsername")
+    Call<Void> updatePasswordByUsername(@Body HashMap<String,String> map);
+
+    @POST("/updateNameByUsername")
+    Call<Void> updateNameByUsername(@Body HashMap<String,String> map);
+
+    @POST("/updateNameAndPasswordByUsername")
+    Call<Void> updateNameAndPasswordByUsername(@Body HashMap<String,String> map);
+
     @FormUrlEncoded
     @POST("/getUserId")
     Call<UserId> getUserId(@FieldMap HashMap<String, String> params);
