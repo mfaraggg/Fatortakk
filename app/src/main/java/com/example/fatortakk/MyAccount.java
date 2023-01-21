@@ -24,8 +24,6 @@ public class MyAccount extends AppCompatActivity {
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
     private String BASE_URL = "http://10.0.2.2:3000";
-    EditText editTextPassword;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,7 @@ public class MyAccount extends AppCompatActivity {
         EditText editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         EditText editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         EditText editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
         EditText editTextName = (EditText) findViewById(R.id.editTextName);
 
         TextView editTextHello = (TextView) findViewById(R.id.fatortakTV);
@@ -54,7 +52,6 @@ public class MyAccount extends AppCompatActivity {
         map.put("username", UserName);
 
         Call<UserId> call = retrofitInterface.getUserByUsername(map);
-//        Call<UserId> call = retrofitInterface.getNameByUsername(map);
 
         call.enqueue(new Callback<UserId>() {
             @Override
@@ -116,67 +113,6 @@ public class MyAccount extends AppCompatActivity {
                 } else {
                     Toast.makeText(MyAccount.this, "Please enter new password or name", Toast.LENGTH_LONG).show();
                 }
-
-
-//                call.enqueue(new Callback<Void>() {
-//                    @Override
-//                    public void onResponse(Call<Void> call, Response<Void> response) {
-//                        if (response.code() == 200) {
-//                            Toast.makeText(MyAccount.this, "Success", Toast.LENGTH_LONG).show();
-//                        } else if (response.code() == 400) {
-//                            Toast.makeText(MyAccount.this, "Failed", Toast.LENGTH_LONG).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<Void> call, Throwable t) {
-//                        Toast.makeText(getApplicationContext(),
-//                                t.getMessage(),Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-
-//                if (newPassword.length() > 0) {
-//                    map.put("username", UserName);
-//                    map.put("password", newPassword);
-//                    Call<Void> call = retrofitInterface.updatePassword(map);
-//                    call.enqueue(new Callback<Void>() {
-//                        @Override
-//                        public void onResponse(Call<Void> call, Response<Void> response) {
-//                            if (response.code() == 200) {
-//                                Toast.makeText(MyAccount.this, "Password Updated", Toast.LENGTH_LONG).show();
-//                            } else if (response.code() == 400) {
-//                                Toast.makeText(MyAccount.this, "Failed", Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<Void> call, Throwable t) {
-//                            Toast.makeText(getApplicationContext(),
-//                                    t.getMessage(),Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//                }
-//                if (newName.length() > 0) {
-//                    map.put("username", UserName);
-//                    map.put("name", newName);
-//                    Call<Void> call = retrofitInterface.updateName(map);
-//                    call.enqueue(new Callback<Void>() {
-//                        @Override
-//                        public void onResponse(Call<Void> call, Response<Void> response) {
-//                            if (response.code() == 200) {
-//                                Toast.makeText(MyAccount.this, "Name Updated", Toast.LENGTH_LONG).show();
-//                            } else if (response.code() == 400) {
-//                                Toast.makeText(MyAccount.this, "Failed", Toast.LENGTH_LONG).show();
-//                            }
-//                        }
-//
-//                        @Override
-//                        public void onFailure(Call<Void> call, Throwable t) {
-//                            Toast.makeText(getApplicationContext(),
-//                                    t.getMessage(), Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//                }
             }
         });
 
