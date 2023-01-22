@@ -3,14 +3,17 @@ package com.example.fatortakk;
 public class UserId {
     private int id;
     private String phone;
+
+    private String password;
     private String name;
     private String email;
 
-    public UserId(int id, String phone, String name, String email) {
+    public UserId(int id, String phone, String name, String email, String password) {
         this.id = id;
         this.phone = phone;
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -26,7 +29,7 @@ public class UserId {
         return email;
     }
     public String getPassword() {
-        return email;
+        return password;
     }
 
     public void setId(int id) {
