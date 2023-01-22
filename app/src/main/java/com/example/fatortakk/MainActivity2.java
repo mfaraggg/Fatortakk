@@ -34,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         Intent intent2 = getIntent();
         String passedUsername = intent2.getStringExtra("id");
+        String passedUserID = intent2.getStringExtra("userID");
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -60,20 +61,20 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Call<UserId> call2 = retrofitInterface.getUserByUsername(map);
-        call2.enqueue(new Callback<UserId>() {
-            @Override
-            public void onResponse(Call<UserId> call, Response<UserId> response) {
-                responseID = response.body().getId();
-                Toast.makeText(MainActivity2.this, responseID.toString(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<UserId> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),
-                        t.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
+//        Call<UserId> call2 = retrofitInterface.getUserByUsername(map);
+//        call2.enqueue(new Callback<UserId>() {
+//            @Override
+//            public void onResponse(Call<UserId> call, Response<UserId> response) {
+//                responseID = response.body().getId();
+//                Toast.makeText(MainActivity2.this, responseID.toString(), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<UserId> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(),
+//                        t.getMessage(),Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         ImageButton AllReceipts, Insights, MyAccount;
         ImageButton PersonalQR;
@@ -106,7 +107,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, AllReceipts.class);
-                intent.putExtra("userID", responseID.toString());
+                intent.putExtra("userID", passedUserID);
                 startActivity(intent);
             }
         });
@@ -115,7 +116,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, Insights.class);
-                intent.putExtra("userID", responseID.toString());
+                intent.putExtra("userID", passedUserID);
                 startActivity(intent);
             }
         });

@@ -45,15 +45,11 @@ public class MainActivity extends Activity {
         ed1 = (EditText)findViewById(R.id.editTextUsername);
         ed2 = (EditText)findViewById(R.id.editTextPassword);
 
-//        b2 = (Button)findViewById(R.id.button2);
-//        tx1 = (TextView)findViewById(R.id.textView3);
-//        tx1.setVisibility(View.GONE);
-
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 HashMap<String, String> map = new HashMap<>();
-                String id = ed1.getText().toString();
+                String username = ed1.getText().toString();
                 map.put("username", ed1.getText().toString());
                 map.put("password", ed2.getText().toString());
 
@@ -63,10 +59,12 @@ public class MainActivity extends Activity {
                     @Override
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
                         if (response.code() == 200) {
+                            String userID = response.body().getId();
                             LoginResult result = response.body();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                            intent.putExtra("id", id);
+                            intent.putExtra("id", username);
+                            intent.putExtra("userID", userID);
                             startActivity(intent);
 
                         } else if (response.code() == 400) {
