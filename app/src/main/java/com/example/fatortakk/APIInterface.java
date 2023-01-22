@@ -12,6 +12,13 @@ public interface APIInterface
 {
     @GET("allreceipts")
     Call<ArrayList<Receipt>> getReceipts(@Query ("userID") int userID);
+
+    @GET("InsightPercentages")
+    Call<String> getInsights(@Query("userID") int userID, @Query("category") String category);
+
+    @GET("UserTotal")
+    Call<String> getUserTotal(@Query("userID") int userID);
+
 }
 
 

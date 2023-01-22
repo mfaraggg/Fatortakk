@@ -106,7 +106,6 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, AllReceipts.class);
-                intent.putExtra("id", passedUsername);
                 intent.putExtra("userID", responseID.toString());
                 startActivity(intent);
             }
@@ -115,7 +114,9 @@ public class MainActivity2 extends AppCompatActivity {
         Insights.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                intent.putExtra("userID", responseID.toString());
+                startActivity(intent);
             }
         });
 
