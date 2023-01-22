@@ -118,10 +118,6 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        PersonalQR = (ImageButton) findViewById(R.id.button2);
-        MyAccount = (ImageButton) findViewById(R.id.button4);
-        AllReceipts = (ImageButton) findViewById(R.id.button3);
-        Insights = (ImageButton) findViewById(R.id.button1);
         PersonalQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -195,6 +191,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, Insights.class);
                 intent.putExtra("userID", passedUserID);
+                intent.putExtra("FinalTotal", FinalTotal[0]);
                 startActivity(intent);
             }
         });
