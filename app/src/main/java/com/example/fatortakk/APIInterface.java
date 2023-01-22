@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface APIInterface
 {
-    @GET("allreceipts")
+    @GET("allUserReceipts")
     Call<ArrayList<Receipt>> getReceipts(@Query ("userID") int userID);
 
     @GET("InsightPercentages")
@@ -19,6 +19,8 @@ public interface APIInterface
     @GET("UserTotal")
     Call<String> getUserTotal(@Query("userID") int userID);
 
+    @GET("allReceiptItems")
+    Call<ArrayList<Item>> getItems(@Query("receiptID") int receiptID);
 }
 
 

@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
+    tools:context=".ThisReceipt"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/default_logo"
+        android:id="@+id/ReceiptLogo"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true">
+    </ImageView>
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="ThisReceipt" />
-</LinearLayout>
+        android:layout_below="@+id/ReceiptLogo"
+        android:text="STORE NAME"
+        android:textSize="30sp"
+        android:id="@+id/StoreName"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/chillax"
+        android:textColor="#00516e"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receipt Date"
+        android:textSize="20sp"
+        android:id="@+id/ReceiptDate"
+        android:layout_below="@+id/StoreName"
+        android:fontFamily="@font/chillax"
+        android:textColor="#00516e"
+        android:layout_marginBottom="5dp"
+        android:layout_centerHorizontal="true">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receipt Time"
+        android:textSize="15sp"
+        android:id="@+id/ReceiptTime"
+        android:layout_below="@+id/ReceiptDate"
+        android:fontFamily="@font/chillax"
+        android:textColor="#00516e"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ReceiptTime"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="TOTAL:"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:fontFamily="@font/chillax"
+            android:textColor="#00516e"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/IDTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="1210.1"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:fontFamily="@font/chillax"
+            android:layout_marginRight="10dp"
+            android:textColor="#00516e"
+            android:textSize="20dp">
+        </TextView>
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/AllItems"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/ReceiptTime"
+        android:layout_margin="20dp">
+    </ListView>
+</RelativeLayout>

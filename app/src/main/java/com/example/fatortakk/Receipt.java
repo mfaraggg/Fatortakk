@@ -7,13 +7,15 @@ public class Receipt {
     private String date;
     private float total;
     private String time;
+    private int id;
 
-    public Receipt(String name, String date, String time, float total)
+    public Receipt(String name, String date, String time, float total, int receiptID)
     {
         this.name = name;
         this.date = date;
         this.time = time;
         this.total = total;
+        this.id = id;
     }
 
     public String getName()
@@ -26,19 +28,9 @@ public class Receipt {
         this.name = name;
     }
 
-    public void setDate(String date)
-    {
-        this.date = date;
-    }
-
     public String getDate()
     {
         return date;
-    }
-
-    public void setTime(String time)
-    {
-        this.time=time;
     }
 
     public String getTime()
@@ -46,13 +38,10 @@ public class Receipt {
         return time;
     }
 
-    public void setTotal(float total)
-    {
-        this.total=total;
-    }
-
     public float getTotal() {
         return total;
     }
+
+    public int getReceiptID(){return id;}
 }
 

@@ -59,25 +59,26 @@ public class AllReceipts extends AppCompatActivity {
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                 Intent intent = new Intent(AllReceipts.this, ThisReceipt.class);
+                                Receipt selectedReceipt = receiptList.get(i);
+                                int selection = selectedReceipt.getReceiptID();
+                                intent.putExtra("selectedReceipt", String.valueOf(selection));
+                                intent.putExtra("selectedStore", selectedReceipt.getName());
+                                intent.putExtra("receiptDate", selectedReceipt.getDate());
+                                intent.putExtra("receiptTime", selectedReceipt.getTime());
+                                intent.putExtra("receiptTotal", String.valueOf(selectedReceipt.getTotal()));
                                 startActivity(intent);
                             }
                         });
                     } else {
-                        Log.d("xxxxxxxxxxx", "response body is null");
-                        Log.d("xxxxxxxxxxx", "response code: " + response.code());
-                        Log.d("xxxxxxxxxxx", "response message: " + response.message());
-                        Log.d("xxxxxxxxxxx", "response: " + response);
-
+                        Log.d("NULL RESPONSE: ", "response body is null");
                     }
                 } else {
-                    Log.d("xxxxxxxxxxx", "RESPONSE FAILED");
+                    Log.d("FAILED RESPONSE:", "RESPONSE FAILED");
                 }
             }
 
             @Override
             public void onFailure(Call<ArrayList<Receipt>> call, Throwable t) {
-                Log.d("xxxxxxxxxxx", "RESPONSE FAILED");
-                Log.d("xxxxxxxxxxx", "error: " + t.getMessage());
                 Toast.makeText(AllReceipts.this, "Failed to load receipts.", Toast.LENGTH_LONG).show();
             }
         });
