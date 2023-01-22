@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,18 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        TextView editTextHello = (TextView) findViewById(R.id.HelloTV);
+        ImageView AllReceipts, Insights, MyAccount, PersonalQR;
+        TextView AllReceiptsTV, InsightsTV, MyAccountTV, PersonalQRTV;
+
+        PersonalQR = (ImageView) findViewById(R.id.myqrIV);
+        MyAccount = (ImageView) findViewById(R.id.myaccountIV);
+        AllReceipts = (ImageView) findViewById(R.id.myreceiptsIV);
+        Insights = (ImageView) findViewById(R.id.myinsightsIV);
+
+        PersonalQRTV = (TextView) findViewById(R.id.myqrTV);
+        MyAccountTV = (TextView) findViewById(R.id.NameTV);
+        AllReceiptsTV = (TextView) findViewById(R.id.myreceiptsTV);
+        InsightsTV = (TextView) findViewById(R.id.myinsightsTV);
 
         Intent intent2 = getIntent();
         String passedUsername = intent2.getStringExtra("id");
@@ -58,7 +70,7 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserId> call, Response<UserId> response) {
                 String responseName = response.body().getName();
-                editTextHello.setText("Hello, " + responseName);
+                MyAccountTV.setText(responseName);
             }
 
             @Override
@@ -106,14 +118,17 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        ImageButton AllReceipts, Insights, MyAccount;
-        ImageButton PersonalQR;
-
-        PersonalQR = (ImageButton) findViewById(R.id.button2);
-        MyAccount = (ImageButton) findViewById(R.id.button4);
-        AllReceipts = (ImageButton) findViewById(R.id.button3);
-        Insights = (ImageButton) findViewById(R.id.button1);
         PersonalQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
+                intent.putExtra("id", passedUsername);
+                startActivity(intent);
+            }
+        });
+
+        PersonalQRTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
@@ -133,6 +148,16 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        MyAccountTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity2.this, MyAccount.class);
+                intent.putExtra("id", passedUsername);
+                startActivity(intent);
+            }
+        });
+
         AllReceipts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +167,26 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        AllReceiptsTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, AllReceipts.class);
+                intent.putExtra("userID", passedUserID);
+                startActivity(intent);
+            }
+        });
+
         Insights.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                intent.putExtra("userID", passedUserID);
+                intent.putExtra("FinalTotal", FinalTotal[0]);
+                startActivity(intent);
+            }
+        });
+
+        InsightsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, Insights.class);
