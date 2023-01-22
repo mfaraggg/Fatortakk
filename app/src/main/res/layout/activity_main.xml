@@ -55,7 +55,7 @@
         android:paddingLeft="10dp"
         android:textColorHint="#3F615D" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/loginButton"
         android:background="@drawable/roundedbutton"
         android:layout_width="match_parent"
