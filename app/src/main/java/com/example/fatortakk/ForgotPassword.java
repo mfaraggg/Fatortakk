@@ -70,6 +70,7 @@ public class ForgotPassword extends AppCompatActivity {
     }
 
     private void sendEmail(String email, String message) {
+        // test push
         BackgroundMail.newBuilder(this)
                 .withUsername("mohammedfarag0101@gmail.com")
                 .withPassword("guxznrlqbsineodo")
