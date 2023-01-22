@@ -3,7 +3,7 @@ package com.example.fatortakk;
 public class LoginResult {
 
     public String username;
-    public String id;
+    public Integer id;
     public String email;
 
     public String getUsername() {
@@ -14,5 +14,5 @@ public class LoginResult {
         return email;
     }
 
-    public String getId() { return id; }
+    public Integer getId() { return id; }
 }

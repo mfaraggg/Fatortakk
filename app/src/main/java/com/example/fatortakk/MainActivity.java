@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
                     @Override
                     public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
                         if (response.code() == 200) {
-                            String userID = response.body().getId();
+                            String userID = response.body().getId().toString();
                             LoginResult result = response.body();
                             Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
