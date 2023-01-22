@@ -32,43 +32,20 @@ public class Insights extends AppCompatActivity {
         String BaseURL = "http://10.0.2.2:3000/";
         Resources res = getResources();
         String[] Categories = res.getStringArray(R.array.Categories);
+        String FinalTotal = intentInsights.getStringExtra("FinalTotal");
 
         APIInterface myAPI;
         ListView InsightList = findViewById(R.id.AllInsights);
 
-        final String[] FinalTotal = new String[1];
-
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseURL).addConverterFactory(GsonConverterFactory.create()).build();
         myAPI = retrofit.create(APIInterface.class);
 
-        Call<String> arrayListCall = myAPI.getUserTotal(passedUserID);
 
-        arrayListCall.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                if (response.isSuccessful()){
-                    FinalTotal[0] = response.body();
-                    Log.d("xxxxxxxxxUSERTOTAL:", FinalTotal[0]);
-                } else {
-                    Log.d("xxxxxxxxxxx", "response body is null");
-                    Log.d("xxxxxxxxxxx", "response code: " + response.code());
-                    Log.d("xxxxxxxxxxx", "response message: " + response.message());
-                    Log.d("xxxxxxxxxxx", "response: " + response);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Log.d("xxxxxxxxxxx", "RESPONSE FAILED");
-                Log.d("xxxxxxxxxxx", "error: " + t.getMessage());
-                Toast.makeText(Insights.this, "Failed to load user total.", Toast.LENGTH_LONG).show();
-            }
-        });
 
         final HashMap<String, String> categoryTotals = new HashMap<>();
 
         for (int i = 0; i < Categories.length; i++) {
-            arrayListCall = myAPI.getInsights(passedUserID, Categories[i]);
+            Call<String> arrayListCall = myAPI.getInsights(passedUserID, Categories[i]);
             final int finalI = i;
             arrayListCall.enqueue(new Callback<String>() {
                 @Override
@@ -76,7 +53,7 @@ public class Insights extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         categoryTotals.put(Categories[finalI], response.body());
                         Log.d(Categories[finalI]+": ", categoryTotals.get(Categories[finalI]));
-                        InsightsAdapter insightsAdapter = new InsightsAdapter(Insights.this, categoryTotals, FinalTotal[0]);
+                        InsightsAdapter insightsAdapter = new InsightsAdapter(Insights.this, categoryTotals, FinalTotal, Categories);
                         InsightList.setAdapter(insightsAdapter);
                     } else {
                         Log.d("NULL RESPONSE", "Response body is EMPTY");

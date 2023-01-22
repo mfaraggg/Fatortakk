@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -35,12 +36,18 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent2 = getIntent();
         String passedUsername = intent2.getStringExtra("id");
         String passedUserID = intent2.getStringExtra("userID");
+        int userID = Integer.valueOf(passedUserID);
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        APIInterface myAPI;
+        Retrofit retrofit1 = new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
+        myAPI = retrofit1.create(APIInterface.class);
+        final String[] FinalTotal = new String[1];
 
         HashMap<String, String> map = new HashMap<>();
         map.put("username", passedUsername);
@@ -75,6 +82,29 @@ public class MainActivity2 extends AppCompatActivity {
 //                        t.getMessage(),Toast.LENGTH_SHORT).show();
 //            }
 //        });
+
+        Call<String> arrayListCall = myAPI.getUserTotal(userID);
+        arrayListCall.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()){
+                    FinalTotal[0] = response.body();
+                    Log.d("xxxxxxxxxUSERTOTAL:", FinalTotal[0]);
+                } else {
+                    Log.d("xxxxxxxxxxx", "response body is null");
+                    Log.d("xxxxxxxxxxx", "response code: " + response.code());
+                    Log.d("xxxxxxxxxxx", "response message: " + response.message());
+                    Log.d("xxxxxxxxxxx", "response: " + response);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d("xxxxxxxxxxx", "RESPONSE FAILED");
+                Log.d("xxxxxxxxxxx", "error: " + t.getMessage());
+                Toast.makeText(MainActivity2.this, "Failed to load user total.", Toast.LENGTH_LONG).show();
+            }
+        });
 
         ImageButton AllReceipts, Insights, MyAccount;
         ImageButton PersonalQR;
@@ -117,6 +147,7 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, Insights.class);
                 intent.putExtra("userID", passedUserID);
+                intent.putExtra("FinalTotal", FinalTotal[0]);
                 startActivity(intent);
             }
         });

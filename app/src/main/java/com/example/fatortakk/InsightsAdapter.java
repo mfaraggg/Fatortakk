@@ -1,6 +1,7 @@
 package com.example.fatortakk;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +16,16 @@ public class InsightsAdapter extends BaseAdapter {
     Context context;
     Map<String, String> categoryTotals;
     String FinalTotal;
+    String[] CategoryNames;
+    int[] CategoryImages = {R.drawable.baseline_shopping_basket_24,
+            R.drawable.baseline_shopping_cart_24,
+    R.drawable.baseline_fastfood_24};
 
-    public InsightsAdapter(Context context, Map<String, String> categoryTotals, String FinalTotal) {
+    public InsightsAdapter(Context context, Map<String, String> categoryTotals, String FinalTotal, String[] categories) {
         this.context = context;
         this.categoryTotals = categoryTotals;
         this.FinalTotal = FinalTotal;
+        this.CategoryNames = categories;
     }
 
     @Override
@@ -42,6 +48,7 @@ public class InsightsAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         convertView=layoutInflater.inflate(R.layout.insight, null);
 
+
         String category = (String) getItem(position);
         String total = categoryTotals.get(category);
         double totalValue = Double.parseDouble(total);
@@ -51,10 +58,23 @@ public class InsightsAdapter extends BaseAdapter {
 
         TextView categoryName = convertView.findViewById(R.id.CategoryName);
         TextView categoryTotal = convertView.findViewById(R.id.Percent);
-        //ImageView categoryImage = convertView.findViewById(R.id.CategoryImage);
+        ImageView categoryImage = convertView.findViewById(R.id.CategoryImage);
 
         categoryName.setText(category);
         categoryTotal.setText(percentString);
+
+        boolean isLogoFound = false;
+        for (int i = 0; i < CategoryNames.length; i++) {
+            if (category.equals(CategoryNames[i])) {
+                // Set the logo image
+                categoryImage.setImageResource(CategoryImages[i]);
+                isLogoFound = true;
+                break;
+            }
+        }
+        if (!isLogoFound) {
+            categoryImage.setImageResource(R.drawable.default_logo);
+        }
 
         return convertView;
     }
