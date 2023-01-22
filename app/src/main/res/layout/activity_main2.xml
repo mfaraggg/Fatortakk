@@ -1,141 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f9fcff"
-    tools:context=".MainActivity2">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/myaccountIV"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/myaccount"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/HelloTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/HelloTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chillax"
-            android:textSize="40dp"
-            android:background="#f9fcff"
-            android:textColor="#00516e"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp" >
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:background="#f9fcff"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myaccountIV"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="10dp"
+        android:text="Hello,"/>
 
-        </TextView>
+    <TextView
+        android:id="@+id/NameTV"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/chillax"
+        android:background="#f9fcff"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myaccountIV"
+        android:layout_marginTop="70dp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="2sp" />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/MenuTV"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="#f9fcff"
+        android:textColor="#00516e"
+        android:layout_below="@+id/NameTV"
+        android:layout_alignStart="@+id/myaccountIV"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:text="fatortak menu"/>
+
+    <ImageView
+        android:id="@+id/myreceiptsIV"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/MenuTV"
+        android:layout_alignStart="@+id/myaccountIV"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/myreceipts"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/myreceiptsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myreceiptsIV"
+        android:layout_below="@+id/MenuTV"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="15dp"
+        android:text="Receipts"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <ImageView
+        android:id="@+id/myinsightsIV"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/myreceiptsIV"
+        android:layout_alignStart="@+id/myaccountIV"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/myinsights"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/myinsightsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myinsightsIV"
+        android:layout_below="@+id/myreceiptsTV"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="15dp"
+        android:text="Insights"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <ImageView
+        android:id="@+id/myqrIV"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/myinsightsIV"
+        android:layout_alignStart="@+id/myaccountIV"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/myqr"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/myqrTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myqrIV"
+        android:layout_below="@+id/myinsightsTV"
+        android:layout_marginTop="65dp"
+        android:layout_marginStart="15dp"
+        android:text="Personal QR"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <ImageView
+        android:id="@+id/myrewardsIV"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/myqrIV"
+        android:layout_alignStart="@+id/myaccountIV"
+        android:layout_marginTop="25dp"
+        android:src="@drawable/myrewards"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+    <TextView
+        android:id="@+id/myrewardsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chillax"
+        android:textSize="25sp"
+        android:textColor="#00516e"
+        android:layout_toEndOf="@+id/myrewardsIV"
+        android:layout_below="@+id/myqrTV"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="30dp"
+        android:text="Rewards"
+        android:clickable="true"
+        android:focusable="true"
+        />
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/firstpart">
-
-            <ImageButton
-                android:id="@+id/button3"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_baseline_receipt_24"
-                android:text="All Receipts"
-                android:scaleType="fitCenter"
-                android:layout_marginRight="30dp"
-                android:layout_above="@id/button1"/>
-
-            <ImageButton
-                android:id="@+id/button4"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/ic_baseline_account_circle_24"
-                android:text="All Receipts"
-                android:scaleType="fitCenter"
-                android:layout_marginLeft="30dp"
-                android:layout_above="@id/button2"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="10dp">
-            ">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="All Receipts"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="10dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My Account"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="20dp">
-
-            </TextView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/secondpart"
-            android:paddingTop="10dp">
-
-            <ImageButton
-                android:id="@+id/button1"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="30dp"
-                android:gravity="bottom"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_baseline_monetization_on_24"
-                android:text="All Receipts" />
-
-            <ImageButton
-                android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="30dp"
-                android:gravity="bottom"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_baseline_qr_code_24"
-                android:text="All Receipts" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            ">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Insights"
-                android:layout_marginLeft="25dp">
-            </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Personal QR"
-                android:layout_marginLeft="97dp">
-
-            </TextView>
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>
