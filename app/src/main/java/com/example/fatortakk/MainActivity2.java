@@ -32,18 +32,20 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        ImageView AllReceipts, Insights, MyAccount, PersonalQR;
-        TextView AllReceiptsTV, InsightsTV, MyAccountTV, PersonalQRTV;
+        ImageView AllReceipts, Insights, MyAccount, PersonalQR, Rewards;
+        TextView AllReceiptsTV, InsightsTV, MyAccountTV, PersonalQRTV, RewardsTV;
 
         PersonalQR = (ImageView) findViewById(R.id.myqrIV);
         MyAccount = (ImageView) findViewById(R.id.myaccountIV);
         AllReceipts = (ImageView) findViewById(R.id.myreceiptsIV);
         Insights = (ImageView) findViewById(R.id.myinsightsIV);
+        Rewards = (ImageView) findViewById(R.id.myrewardsIV);
 
         PersonalQRTV = (TextView) findViewById(R.id.myqrTV);
         MyAccountTV = (TextView) findViewById(R.id.NameTV);
         AllReceiptsTV = (TextView) findViewById(R.id.myreceiptsTV);
         InsightsTV = (TextView) findViewById(R.id.myinsightsTV);
+        RewardsTV = (TextView) findViewById(R.id.myrewardsTV);
 
         Intent intent2 = getIntent();
         String passedUsername = intent2.getStringExtra("id");
@@ -187,6 +189,26 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
         InsightsTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                intent.putExtra("userID", passedUserID);
+                intent.putExtra("FinalTotal", FinalTotal[0]);
+                startActivity(intent);
+            }
+        });
+
+        Rewards.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                intent.putExtra("userID", passedUserID);
+                intent.putExtra("FinalTotal", FinalTotal[0]);
+                startActivity(intent);
+            }
+        });
+
+        RewardsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity2.this, Insights.class);
