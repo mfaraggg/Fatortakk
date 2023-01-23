@@ -50,7 +50,7 @@ public class ThisReceipt extends AppCompatActivity {
         TextView Store = findViewById(R.id.StoreName);
         TextView Date = findViewById(R.id.ReceiptDate);
         TextView Time = findViewById(R.id.ReceiptTime);
-        TextView Total = findViewById(R.id.TotalN
+        TextView TotalN = findViewById(R.id.TotalNum);
         boolean LogoFound = false;
 
         Call<ArrayList<Item>> arrayListCall = myAPI.getItems(RID);
@@ -70,6 +70,7 @@ public class ThisReceipt extends AppCompatActivity {
         Store.setText(storeName);
         Date.setText(receiptDate);
         Time.setText(receiptTime);
+        TotalN.setText(receiptTotal);
 
 
 

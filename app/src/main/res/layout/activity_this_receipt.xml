@@ -72,7 +72,7 @@
         </TextView>
 
         <TextView
-            android:id="@+id/IDTotal"
+            android:id="@+id/TotalNum"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="1210.1"
