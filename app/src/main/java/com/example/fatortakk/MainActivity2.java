@@ -201,7 +201,7 @@ public class MainActivity2 extends AppCompatActivity {
         Rewards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                Intent intent = new Intent(MainActivity2.this, Rewards.class);
                 intent.putExtra("userID", passedUserID);
                 intent.putExtra("FinalTotal", FinalTotal[0]);
                 startActivity(intent);
@@ -211,9 +211,8 @@ public class MainActivity2 extends AppCompatActivity {
         RewardsTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity2.this, Insights.class);
+                Intent intent = new Intent(MainActivity2.this, Rewards.class);
                 intent.putExtra("userID", passedUserID);
-                intent.putExtra("FinalTotal", FinalTotal[0]);
                 startActivity(intent);
             }
         });

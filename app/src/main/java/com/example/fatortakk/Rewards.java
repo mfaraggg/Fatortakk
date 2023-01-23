@@ -5,11 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -18,12 +16,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Insights extends AppCompatActivity {
+public class Rewards extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insights);
+        setContentView(R.layout.activity_rewardss);
 
         Intent intentInsights = getIntent();
         String userID = intentInsights.getStringExtra("userID");
@@ -31,40 +29,42 @@ public class Insights extends AppCompatActivity {
 
         String BaseURL = "http://10.0.2.2:3000/";
         Resources res = getResources();
-        String[] Categories = res.getStringArray(R.array.Categories);
-        String FinalTotal = intentInsights.getStringExtra("FinalTotal");
+        String[] StoreNames = res.getStringArray(R.array.StoresArray);
 
         APIInterface myAPI;
-        ListView InsightList = findViewById(R.id.AllInsights);
+        ListView RewardList = findViewById(R.id.AllRewards);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(BaseURL).addConverterFactory(GsonConverterFactory.create()).build();
         myAPI = retrofit.create(APIInterface.class);
 
-        final HashMap<String, String> categoryTotals = new HashMap<>();
+        int [] logoImages = {R.drawable.copa_acai, R.drawable.gourmet, R.drawable.ikea, R.drawable.nike,
+                R.drawable.ovio, R.drawable.starbucks, R.drawable.zara};
 
-        for (int i = 0; i < Categories.length; i++) {
-            Call<String> arrayListCall = myAPI.getInsights(passedUserID, Categories[i]);
+        final HashMap<String, String> StoreRewards = new HashMap<>();
+        for (int i=0; i<StoreNames.length; i++)
+        {
+            Call<String> arrayListCall = myAPI.getRewards(passedUserID, StoreNames[i]);
             final int finalI = i;
+
             arrayListCall.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
-                    if (response.isSuccessful()) {
-                        categoryTotals.put(Categories[finalI], response.body());
-                        Log.d(Categories[finalI]+": ", categoryTotals.get(Categories[finalI]));
-                        InsightsAdapter insightsAdapter = new InsightsAdapter(Insights.this, categoryTotals, FinalTotal, Categories);
-                        InsightList.setAdapter(insightsAdapter);
-                    } else {
-                        Log.d("NULL RESPONSE", "Response body is EMPTY");
+                    if (response.isSuccessful())
+                    {
+                        StoreRewards.put(StoreNames[finalI], response.body());
+                        RewardsAdapter rewardsAdapter = new RewardsAdapter(Rewards.this, logoImages,
+                                StoreNames, StoreRewards);
+                        RewardList.setAdapter(rewardsAdapter);
                     }
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
-                    Toast.makeText(Insights.this, "Failed to load category total.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Rewards.this, "Failed to load bonuses.", Toast.LENGTH_LONG).show();
                 }
             });
-        }
 
+        }
 
     }
 }

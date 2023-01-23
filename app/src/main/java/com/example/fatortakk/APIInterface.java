@@ -21,6 +21,9 @@ public interface APIInterface
 
     @GET("allReceiptItems")
     Call<ArrayList<Item>> getItems(@Query("receiptID") int receiptID);
+
+    @GET("getBonus")
+    Call<String> getRewards(@Query("userID") int userID, @Query("name") String storeName);
 }
 
 
